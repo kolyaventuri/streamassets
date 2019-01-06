@@ -1,4 +1,5 @@
 import {h, Component} from 'preact';
+import cx from 'classnames';
 import Marquee from './marquee.jsx';
 
 import styles from './widget.scss';
@@ -7,17 +8,21 @@ export default class Widget extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {message: 'Some super long message that definitely wont fit in the box'};
+    this.state = {
+      message: 'Some super long message that definitely wont fit in the box',
+      open: true
+    };
   }
 
   render() {
-    const {message} = this.state;
+    const {message, open} = this.state;
+    const width = open ? null : 0;
 
     return (
       <div className={styles.ticker}>
         <img src={require('./images/logo_small.png')}/>
-        <div className={styles.infoBox}>
-          <Marquee text={message}/>
+        <div className={styles.infoBox} style={{width}}>
+          <Marquee text={message} running={open}/>
         </div>
       </div>
     );
