@@ -1,5 +1,5 @@
-@import "./_vars.scss";
-
+@import './_vars';
+@import './_spin';
 
 .ticker {
   height: $tickerHeight;
@@ -12,6 +12,13 @@
     height: 100%;
 
     z-index: 5;
+
+    &.animated {
+      animation-name: spin;
+      animation-duration: $animSpeed;
+      animation-iteration-count: 1;
+      animation-timing-function: easeInOut;
+    }
   }
 
   .infoBox {
@@ -28,6 +35,7 @@
     z-index: 1;
 
     transition: width 0.5s;
+    transition-delay: $animSpeed / 2;
 
     overflow: hidden;
   }

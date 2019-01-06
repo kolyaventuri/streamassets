@@ -54,10 +54,11 @@ export default class Widget extends Component {
   render() {
     const {message, open} = this.state;
     const width = open ? null : 0;
+    const animClass = open ? styles.animated : null;
 
     return (
       <div className={styles.ticker}>
-        <img src={require('./images/logo_small.png')}/>
+        <img src={require('./images/logo_small.png')} className={animClass} />
         <div className={styles.infoBox} style={{width}}>
           <Marquee text={message} running={open}/>
         </div>
