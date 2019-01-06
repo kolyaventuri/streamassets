@@ -18,13 +18,12 @@ export default class Marquee extends Component {
     super(...arguments);
 
     this.textRef = createRef();
+
+    this.setupMarquee = this.setupMarquee.bind(this);
   }
 
-  componentDidMount() {
-    this.setupMarquee();
-  }
-
-  setupMarquee = () => {
+  setupMarquee() {
+    if (this.interval) { clearInterval(this.interval); }
     const {current: textObject} = this.textRef;
 
     const initialLeft = getCssProp(textObject, 'left');

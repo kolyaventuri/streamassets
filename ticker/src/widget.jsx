@@ -1,4 +1,4 @@
-import {h, Component} from 'preact';
+import {h, Component, createRef} from 'preact';
 import cx from 'classnames';
 import Marquee from './marquee.jsx';
 
@@ -22,6 +22,7 @@ export default class Widget extends Component {
     };
 
     this.key = 0;
+    this.marqueeRef = createRef();
   }
 
   componentDidMount() {
@@ -38,6 +39,8 @@ export default class Widget extends Component {
       message: getString(key),
       open: true
     }, () => {
+      const {current: marquee} = this.marqueeRef;
+      marquee.setupMarquee();
       setTimeout(this.hideMessage, displayTime * 1000);
     });
   };
@@ -59,7 +62,7 @@ export default class Widget extends Component {
       <div className={styles.ticker}>
         <img src={require('./images/logo_small.png')} className={animClass} />
         <div className={styles.infoBox} style={{width}}>
-          <Marquee text={message} running={open}/>
+          <Marquee text={message} running={open} ref={this.marqueeRef} />
         </div>
       </div>
     );
