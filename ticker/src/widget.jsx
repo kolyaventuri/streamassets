@@ -9,8 +9,8 @@ import styles from './widget.scss';
 
 const {getString} = new StringFormatter(strings);
 
-const displayTime = 5;
-const waitTime = 10;
+const displayTime = 15;
+const waitTime = 60;
 const stringNames = Object.keys(strings);
 
 export default class Widget extends Component {
