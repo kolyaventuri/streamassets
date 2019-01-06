@@ -2,8 +2,8 @@ import {h, Component, createRef} from 'preact';
 
 import styles from './marquee.scss';
 
-const movementInterval = 25;
-const movementAmount = 5;
+const movementInterval = 7;
+const movementAmount = 1;
 
 const getCssProp = (elem, prop) =>
   getComputedStyle(elem, null).getPropertyValue(prop);
@@ -58,8 +58,6 @@ export default class Marquee extends Component {
     const left = parseInt(getCssProp(textObject, 'left'));
     const {textWidth, initialLeft} = this;
     const pos = parseInt(left) || 0;
-    console.log(left, movementAmount);
-    console.log(pos - initialLeft, initialLeft);
 
     if (pos - initialLeft < -(textWidth + initialLeft)) {
       textObject.style.left = textWidth;

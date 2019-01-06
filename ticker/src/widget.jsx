@@ -9,8 +9,8 @@ export default class Widget extends Component {
     super(props);
 
     this.state = {
-      message: 'Some super long message that definitely wont fit in the box',
-      open: true
+      message: '',
+      open: false
     };
   }
 
