@@ -11,13 +11,22 @@ module.exports = {
         loader: "babel-loader"
       },
       {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
+        ]
+      },
+      {
         test: /\.(css|scss)$/,
         use: [
           {
             loader: 'style-loader'
           },
           {
-            loader: 'sass-loader?modules&importLoaders=true&localIdentName=[name]__[local]___[hash:base64:5]'
+            loader: 'css-loader?modules&importLoaders=true&localIdentName=[name]__[local]___[hash:base64:5]'
+          },
+          {
+            loader: 'sass-loader'
           }
         ]
       }
