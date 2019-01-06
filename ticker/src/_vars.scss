@@ -2,10 +2,12 @@ $pink: #F099EB;
 $green: #97EBBB;
 
 $tickerHeight: 150px;
-$tickerWidth: 600px;
 
 $infoBoxHeight: $tickerHeight * 0.55;
-$infoBoxWidth: 600px;
+$infoBoxWidth: 700px;
 
 $infoBoxBackground: linear-gradient(160deg, $pink, $green);
 $borderWidth: 3px;
+
+$fontSize: 2em;
+$fontColor: #FFFFFF;
