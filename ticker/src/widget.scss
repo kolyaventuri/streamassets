@@ -1,0 +1,31 @@
+@import "./_vars.scss";
+
+
+.ticker {
+  height: $tickerHeight;
+
+  * {
+    position: absolute;
+  }
+
+  img {
+    height: 100%;
+
+    z-index: 5;
+  }
+
+  .infoBox {
+    height: $infoBoxHeight;
+    width: $infoBoxWidth;
+    border: $borderWidth solid #FFFFFF;
+    background: $infoBoxBackground;
+    background-size: $infoBoxWidth $infoBoxHeight;
+    top: 50%;
+    left: $tickerHeight / 2;
+
+    transform: translateY(-50%);
+
+    z-index: 1;
+  }
+
+}
