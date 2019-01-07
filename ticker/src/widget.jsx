@@ -21,7 +21,7 @@ export default class Widget extends Component {
       open: false
     };
 
-    this.key = 0;
+    this.key = -1;
     this.marqueeRef = createRef();
   }
 

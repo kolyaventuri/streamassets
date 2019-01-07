@@ -23,31 +23,34 @@ export default class Marquee extends Component {
   }
 
   setupMarquee() {
-    if (this.interval) { clearInterval(this.interval); }
     const {current: textObject} = this.textRef;
 
-    const initialLeft = getCssProp(textObject, 'left');
     const textWidth = getCssProp(textObject, 'width');
     const offsetWidth = textObject.parentElement.offsetWidth;
 
-    this.initialLeft = parseInt(initialLeft) || 0;
-    this.textWidth = parseInt(textWidth) || 0;
-    this.availableWidth = offsetWidth - this.initialLeft;
-    this.availableWidth = this.availableWidth > 0 ? this.availableWidth : 0;
+    if (!this.initialLeft) {
+      const initialLeft = getCssProp(textObject, 'left');
+      this.initialLeft = parseInt(initialLeft) || 0;
+    }
+    if (!this.availableWidth) {
+      this.availableWidth = offsetWidth - this.initialLeft;
+      this.availableWidth = this.availableWidth > 0 ? this.availableWidth : 0;
+    }
 
-    this.startScroll();
+    this.textWidth = parseInt(textWidth) || 0;
+
+    this.resetTextPosition();
+    this.doScroll();
   };
 
-  startScroll = () => {
+  doScroll = () => {
     if (this.props.running) {
       if (this.availableWidth < this.textWidth) {
-        this.interval = setInterval(() => {
+        setTimeout(() => {
           this.moveText();
         }, movementInterval);
       } else {
-        console.log('stop');
         this.resetTextPosition();
-        clearInterval(this.interval);
       }
     }
   };
@@ -60,10 +63,12 @@ export default class Marquee extends Component {
 
     if (pos - initialLeft < -(textWidth + initialLeft)) {
       textObject.style.left = textWidth;
-      return;
+    } else {
+      textObject.style.left = left - movementAmount;
     }
 
-    textObject.style.left = left - movementAmount;
+    return this.doScroll();
+
   };
 
   resetTextPosition = () => {
