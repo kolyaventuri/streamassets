@@ -13,11 +13,14 @@
 
     z-index: 5;
 
+    animation-name: spinRev;
+
+    animation-duration: $animSpeed;
+    animation-iteration-count: 1;
+    animation-timing-function: easeInOut;
+
     &.animated {
       animation-name: spin;
-      animation-duration: $animSpeed;
-      animation-iteration-count: 1;
-      animation-timing-function: easeInOut;
     }
   }
 
