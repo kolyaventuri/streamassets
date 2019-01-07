@@ -17,7 +17,7 @@
 
     animation-duration: $animSpeed;
     animation-iteration-count: 1;
-    animation-timing-function: easeInOut;
+    animation-timing-function: ease-in-out;
 
     &.animated {
       animation-name: spin;
