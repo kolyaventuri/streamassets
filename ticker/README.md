@@ -13,3 +13,7 @@ Text longer than what the box can hold will be displayed in a scrolling marquee 
 ## Configuration
 - Set strings you want to use in the `src/strings.json` file
 - Configure timings in the `src/config.json` file in the 
+
+## Building
+- Run `npm run build`
+  - Files (bundle.js and image) will be written to `./webpack/dist/`
