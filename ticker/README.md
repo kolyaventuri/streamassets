@@ -10,6 +10,13 @@ Text longer than what the box can hold will be displayed in a scrolling marquee 
 
 [https://streamable.com/l8s65](https://streamable.com/l8s65)
 
+## Pre-requesites
+- NodeJS 8+
+
+## Setup
+- Clone down the entire streamassets repo with `git clone git@github.com:kolyaventuri/streamassets.git`
+- cd into the ticker directory and install packages with `npm i`
+
 ## Configuration
 - Set strings you want to use in the `src/strings.json` file
 - Configure timings in the `src/config.json` file in the 
